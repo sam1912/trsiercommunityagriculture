@@ -1,0 +1,30 @@
+{
+  "groups": [{
+    "name": "wxapp",
+    "type": "com.trsier.communityagriculture.common.properties.WxAuth",
+    "sourceType": "com.trsier.communityagriculture.common.properties.WxAuth"
+  }],
+  "properties": [
+    {
+      "name": "wxapp.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.trsier.communityagriculture.common.properties.WxAuth"
+    },
+    {
+      "name": "wxapp.grant-type",
+      "type": "java.lang.String",
+      "sourceType": "com.trsier.communityagriculture.common.properties.WxAuth"
+    },
+    {
+      "name": "wxapp.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.trsier.communityagriculture.common.properties.WxAuth"
+    },
+    {
+      "name": "wxapp.session-host",
+      "type": "java.lang.String",
+      "sourceType": "com.trsier.communityagriculture.common.properties.WxAuth"
+    }
+  ],
+  "hints": []
+}
