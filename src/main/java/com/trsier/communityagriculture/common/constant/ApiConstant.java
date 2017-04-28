@@ -32,13 +32,20 @@ public class ApiConstant {
 
 	/*解密用户信息*/
 	public static final String WX_DECODE_USERINFO = "WX_DECODE_USERINFO";
-	
-	/* club社区专栏 */
-	public static final String WX_CLUB_ARTICLES = "WX_CLUB_ARTICLES";
+
+	/*获取category信息*/
+	public final static String GET_CATEGORY = "GET_CATEGORY";
+
+	/*创建category信息 */
+	public static final String POST_CATEGORY = "POST_CATEGORY";
+
+	/*更新category信息*/
+	public final static String PUT_CATEGORY = "PUT_CATEGORY";
+
+	/*删除category信息*/
+	public final static String DELETE_CATEGORY = "DELETE_CATEGORY";
 
 	/* club社区专栏文章搜索 */
 	public static final String WX_CLUB_SEARCH = "WX_CLUB_SEARCH";
 
-	/*  */
-	public static final String CATEGORY_PRODUCTS="CATEGORY_PRODUCTS";
 }

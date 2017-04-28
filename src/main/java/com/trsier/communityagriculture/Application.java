@@ -1,9 +1,12 @@
 package com.trsier.communityagriculture;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.trsier.communityagriculture.common.constant.ApiConstant;
 import com.trsier.communityagriculture.common.properties.WxAuth;
+import com.trsier.communityagriculture.config.ApiName;
 import com.trsier.communityagriculture.entity.auth.AppKey;
 import com.trsier.communityagriculture.repository.AppKeyRepository;
 import org.apache.catalina.connector.Connector;
@@ -40,6 +43,9 @@ public class Application implements CommandLineRunner{
 	@Autowired
 	private AppKeyRepository appKeyRepository;
 
+	@Autowired
+	private ApiName apiNames;
+
 	private static ImmutableMap<String,String> errorCodeMap = null;
 	static {
 		try{
@@ -54,16 +60,14 @@ public class Application implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-		System.out.println(errorCodeMap);
 	}
 
 	@Override
 	public void run(String... strings) throws Exception {
 		appKeyRepository.deleteAll();
-		String[] apiNames = new String[]{ApiConstant.GET_USER,ApiConstant.POST_USER,ApiConstant.PUT_USER,
-				ApiConstant.DELETE_USER,ApiConstant.WX_CODE,ApiConstant.WX_DECODE_USERINFO};
 		Map<String,Map<String,Integer>> apiMap = Maps.newHashMap();
-		for(String apiName:apiNames){
+		//代替原来的读取apiName(ApiConstant.class)
+		for(String apiName:apiNames.getApiNames().values()){
 			Map<String,Integer> tmpMap = new HashMap<String, Integer>();
 			tmpMap.put("calltimes",0);
 			tmpMap.put("alltimes",10000);
@@ -94,4 +98,5 @@ public class Application implements CommandLineRunner{
 		connector.setPort(port());
 		return connector;
 	}
+
 }
